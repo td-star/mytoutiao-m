@@ -90,6 +90,7 @@ export default {
         const res = await login(this.user)
         Toast.success('登陆成功')
         this.$store.commit('setUser', res.data.data)
+        this.$router.back()
       } catch (err) {
         console.log(err)
         Toast.fail('登陆失败,请输入正确的手机号或验证码')
