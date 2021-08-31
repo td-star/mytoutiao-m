@@ -24,7 +24,7 @@
                 编辑资料
               </van-button>
           </van-cell>
-        <van-grid :border=false class="data-info">
+        <!-- <van-grid :border=false class="data-info">
           <van-grid-item class="data-info-item">
               <div class="text-warp" slot="text">
                   <div class="count">{{currentUser.art_count}}</div>
@@ -49,7 +49,37 @@
                   <div class="text">获赞</div>
               </div>
           </van-grid-item>
-        </van-grid>
+        </van-grid> -->
+        <div class="data-info">
+          <table>
+            <tr>
+              <td>
+                <div class="text-warp" slot="text">
+                  <div class="count">{{currentUser.art_count}}</div>
+                  <div class="text">头条</div>
+              </div>
+              </td>
+              <td>
+                <div class="text-warp" slot="text">
+                  <div class="count">{{currentUser.follow_count}}</div>
+                  <div class="text">关注</div>
+              </div>
+              </td>
+              <td>
+                <div class="text-warp" slot="text">
+                  <div class="count">{{currentUser.fans_count}}</div>
+                  <div class="text">粉丝</div>
+              </div>
+              </td>
+              <td>
+                <div class="text-warp" slot="text">
+                  <div class="count">{{currentUser.like_count}}</div>
+                  <div class="text">获赞</div>
+              </div>
+              </td>
+            </tr>
+          </table>
+        </div>
       </van-cell-group>
       <div v-else class="not-login">
         <div @click="$router.push('/login')">
@@ -135,27 +165,49 @@ export default {
               color: rgba(61, 64, 66, 0.884);
           }
         }
+        // .data-info {
+        //     .data-info-item {
+        //         height: 65px;
+        //          color: rgba(61, 64, 66, 0.884);
+        //          .text-warp {
+        //              display: flex;
+        //              flex-direction: column;
+        //              justify-content: center;
+        //              align-items: center;
+        //             .count {
+        //                 font-size: 18px;
+        //             }
+        //             .text {
+        //                 font-size: 11px;
+        //             }
+        //             ::v-deep .van-grid-item__content {
+        //                background-color: unset;
+        //             }
+        //          }
+        //       }
+        //   }
         .data-info {
-            .data-info-item {
-                height: 65px;
-                 color: rgba(61, 64, 66, 0.884);
-                 .text-warp {
-                     display: flex;
-                     flex-direction: column;
-                     justify-content: center;
-                     align-items: center;
+          table {
+            width: 100%;
+            tr{
+              height: 65px;
+              td {
+                .text-warp {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
                     .count {
                         font-size: 18px;
                     }
                     .text {
-                        font-size: 11px;
-                    }
-                    ::v-deep .van-grid-item__content {
-                       background-color: unset;
-                    }
-                 }
+                         font-size: 11px;
+                     }
+                }
               }
+            }
           }
+        }
       }
   }
   .not-login {
